@@ -1,0 +1,26 @@
+config.tx_extbase {
+	objects {
+		Tx_PwComments_Controller_CommentController {
+			className = Tx_JhPwcommentsCaptcha_Controller_CaptchaController
+		}
+		Tx_PwComments_Domain_Model_Comment {
+			className = Tx_JhPwcommentsCaptcha_Domain_Model_Captcha
+		}
+	}
+
+	persistence{
+		classes{
+			Tx_PwComments_Domain_Model_Comment {
+				subclasses {
+					JhPwcommentsCaptcha = Tx_JhPwcommentsCaptcha_Domain_Model_Captcha
+				}
+			}
+			Tx_JhPwcommentsCaptcha_Domain_Model_Captcha {
+				mapping {
+					tableName = tx_pwcomments_domain_model_comment
+				}
+			}
+		}
+	}
+
+}

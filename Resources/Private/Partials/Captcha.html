@@ -1,0 +1,6 @@
+{namespace captcha=Tx_CaptchaViewhelper_ViewHelpers}
+<div>
+    <label><f:translate key="newComment.captcha.label" /></label>
+    <f:form.textfield property="captchaResponse"  title="{f:translate(key: 'newComment.captcha.notice')}{f:translate(key: 'newComment.captcha.explain')}"/>
+    <captcha:captcha />
+</div>

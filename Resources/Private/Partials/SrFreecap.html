@@ -1,0 +1,7 @@
+{namespace freeCap=SJBR\SrFreecap\ViewHelpers}
+<div>
+    <label for="sjbr-freecap-captcha-response"><f:translate key="newComment.captcha.label" /></label>
+    <f:form.textfield id="sjbr-freecap-captcha-response" property="captchaResponse" size="15" title="{f:translate(key: 'newComment.captcha.notice')}{f:translate(key: 'newComment.captcha.explain')}" />
+    <freeCap:image />
+    <freeCap:audio />
+</div>

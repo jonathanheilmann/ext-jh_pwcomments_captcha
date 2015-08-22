@@ -1,0 +1,30 @@
+plugin.tx_pwcomments {
+	settings {
+		#add captcha-settings
+		captcha = {$plugin.tx_pwcomments.settings.captcha}
+	}
+	view {
+		#change the templateRootPath
+		templateRootPath = EXT:jh_pwcomments_captcha/Resources/Private/Templates/
+		#change the partialRootPath
+		partialRootPath = EXT:jh_pwcomments_captcha/Resources/Private/Partials/
+	}
+	#do not use the rewrittenPropertyMapper, it would run into an error
+	features.rewrittenPropertyMapper = 0
+
+	#add some language labels
+	_LOCAL_LANG {
+		default {
+			validation_error.captcha = Entered word does not match the image.
+			newComment.captcha.label = Captcha:
+			newComment.captcha.notice = Please enter here the word as displayed in the picture.
+			newComment.captcha.explain = This is to prevent spamming.
+		}
+		de {
+			validation_error.captcha = Das eingegebene Wort stimmt nicht mit dem Bild überein.
+			newComment.captcha.label = Captcha:
+			newComment.captcha.notice = Bitte das Wort aus dem Bild eintragen.
+			newComment.captcha.explain = Dies ist nötig um vor Spam zu schützen.
+		}
+	}
+}
