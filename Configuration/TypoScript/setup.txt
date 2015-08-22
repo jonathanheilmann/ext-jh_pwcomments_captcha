@@ -15,8 +15,6 @@ plugin.tx_pwcomments {
 			200 = EXT:jh_pwcomments_captcha/Resources/Private/Partials
 		}
 	}
-	#force to use the rewrittenPropertyMapper
-	features.rewrittenPropertyMapper = 1
 
 	#add some language labels
 	_LOCAL_LANG {
