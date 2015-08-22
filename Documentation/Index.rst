@@ -1,60 +1,63 @@
-
-.. ==================================================
+﻿.. ==================================================
 .. FOR YOUR INFORMATION
 .. --------------------------------------------------
 .. -*- coding: utf-8 -*- with BOM.
 
-.. ==================================================
-.. DEFINE SOME TEXTROLES
-.. --------------------------------------------------
-.. role::   underline
-.. role::   typoscript(code)
-.. role::   ts(typoscript)
-   :class:  typoscript
-.. role::   php(code)
-
-=======================
-EXT: pwComments captcha
-=======================
-
-:Created:
-      2010-02-18 17:03:03
-
-:Changed:
-      2015-05-12 20:53:04
-
-:Classification:
-      jh_pwcomments_captcha
-
-:Keywords:
-      pwComments, pw_comments, comment, comments, patcha, spam-protection
-
-:Author:
-      Jonathan Heilmann
-
-:Email:
-      mail@jonathan-heilmann.de
-
-:Info 4:
+.. include:: Includes.txt
 
 
-:Language:
-      en
+.. _start:
+
+=============================================================
+pwComments captcha
+=============================================================
+
+.. only:: html
+
+	:Classification:
+		jh_pwcomments_captcha
+
+	:Version:
+		|release|
+
+	:Language:
+		en
+
+	:Description:
+		Adds a captcha to the comments-form of EXT:pw_comments. Supports EXT:captcha and EXT:sr_freecap.
+
+	:Keywords:
+		pwComments, pw_comments, comment, comments, patcha, spam-protection
+
+	:Copyright:
+		2014-2015
+
+	:Author:
+		Jonathan Heilmann
+
+	:Email:
+		mail@jonathan-heilmann.de
+
+	:License:
+		This document is published under the Open Content License
+		available from http://www.opencontent.org/opl.shtml
+
+	:Rendered:
+		|today|
+
+	The content of this document is related to TYPO3,
+	a GNU/GPL CMS/Framework available from `www.typo3.org <http://www.typo3.org/>`_.
 
 
-.. figure:: Images/manual_html_22ebf792.gif
-
-.. figure:: Images/manual_html_3c9c2593.png
-   :height: 21
-   :width: 87
-
-EXT: pwComments captcha-jh\_pwcomments\_captcha
-
+	**Table of Contents**
 
 .. toctree::
-   :maxdepth: 5
-   :titlesonly:
-   :glob:
+	:maxdepth: 5
+	:titlesonly:
+	:glob:
 
-   ExtPwcommentsCaptcha/Index
-
+	Introduction/Index
+	Configuration/Index
+	AdministratorManual/Index
+	Changelog/Index
+	Targets
