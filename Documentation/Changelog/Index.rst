@@ -26,7 +26,7 @@ Changelog
    :Changes:
         \* Breaking changes! Please see breaking changes :ref:`admin-breaking_changes-00100` for more information
 
-        \* Added support for EXT:pw\_comments 0.3.0 and dropped support for versions before
+        \* Added support for EXT:pw\_comments 3.0.0 and dropped support for versions before
 
         \* Updated documentation
 
