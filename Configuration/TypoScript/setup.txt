@@ -5,26 +5,32 @@ plugin.tx_pwcomments {
 	}
 	view {
 		#change the templateRootPath
-		templateRootPath = EXT:jh_pwcomments_captcha/Resources/Private/Templates/
+		templateRootPath = EXT:pw_comments/Resources/Private/Templates
+		templateRootPaths {
+			200 = EXT:jh_pwcomments_captcha/Resources/Private/Templates
+		}
 		#change the partialRootPath
-		partialRootPath = EXT:jh_pwcomments_captcha/Resources/Private/Partials/
+		partialRootPath = EXT:pw_comments/Resources/Private/Partials
+		partialRootPaths {
+			200 = EXT:jh_pwcomments_captcha/Resources/Private/Partials
+		}
 	}
-	#do not use the rewrittenPropertyMapper, it would run into an error
-	features.rewrittenPropertyMapper = 0
+	#force to use the rewrittenPropertyMapper
+	features.rewrittenPropertyMapper = 1
 
 	#add some language labels
 	_LOCAL_LANG {
 		default {
-			validation_error.captcha = Entered word does not match the image.
-			newComment.captcha.label = Captcha:
-			newComment.captcha.notice = Please enter here the word as displayed in the picture.
-			newComment.captcha.explain = This is to prevent spamming.
+			tx_pwcomments.validation_error.captcha = Entered word does not match the image.
+			tx_pwcomments.newComment.captcha.label = Captcha:
+			tx_pwcomments.newComment.captcha.notice = Please enter here the word as displayed in the picture.
+			tx_pwcomments.newComment.captcha.explain = This is to prevent spamming.
 		}
 		de {
-			validation_error.captcha = Das eingegebene Wort stimmt nicht mit dem Bild überein.
-			newComment.captcha.label = Captcha:
-			newComment.captcha.notice = Bitte das Wort aus dem Bild eintragen.
-			newComment.captcha.explain = Dies ist nötig um vor Spam zu schützen.
+			tx_pwcomments.validation_error.captcha = Das eingegebene Wort stimmt nicht mit dem Bild überein.
+			tx_pwcomments.newComment.captcha.label = Captcha:
+			tx_pwcomments.newComment.captcha.notice = Bitte das Wort aus dem Bild eintragen.
+			tx_pwcomments.newComment.captcha.explain = Dies ist nötig um vor Spam zu schützen.
 		}
 	}
 }

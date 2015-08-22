@@ -1,4 +1,8 @@
 <?php
+namespace Heilmann\JhPwcommentsCaptcha\Validation\Validator;
+
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 /***************************************************************
 *  Copyright notice
 *
@@ -28,8 +32,19 @@
 /**
  * Captcha Validator modified to use options from ->setOptions
  * Modified by Jonathan Heilmann <mail@jonathan-heilmann.de>
+ *
+ * @deprecated It seems that EXT:captcha_viewhelper is not maintained anymore. Support will be dropped two minor versions later
  */
-class Tx_JhPwcommentsCaptcha_Validation_Validator_CaptchaValidator extends Tx_Extbase_Validation_Validator_AbstractValidator {
+class CaptchaValidator extends \TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator {
+
+	/**
+	 * This contains the supported options, their default values, types and descriptions.
+	 *
+	 * @var array
+	 */
+	protected $supportedOptions = array(
+		'value' => array('', 'Captcha string', 'string')
+	);
 
 	/**
 	* Returns TRUE, if the given property ($value) matches the session captcha Value.
@@ -40,23 +55,18 @@ class Tx_JhPwcommentsCaptcha_Validation_Validator_CaptchaValidator extends Tx_Ex
 	* @return boolean TRUE if the value is valid, FALSE if an error occured
 	*/
 	public function isValid($value) {
-		$this->errors = array();
 		// Overwrite $word if options contains a value
-		if($this->options['value']) {
+		if ($this->options['value']) {
 			$value = $this->options['value'];
 		}
-		$captcha = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Tx_CaptchaViewhelper_Captcha');
-		//$captcha = t3lib_div::makeInstance('Tx_CaptchaViewhelper_Captcha');
-		//$captcha = new Tx_CaptchaViewhelper_Captcha();
-		try{
-			if($value !== $captcha->getTextInSession()){
-				//$this->addError('Entered word does not match the image.', 170320111501);
-				$this->addError(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('validation_error.captcha', 'PwComment'), 170320111501);
-
+		$captcha = GeneralUtility::makeInstance('Tx_CaptchaViewhelper_Captcha');
+		try {
+			if ($value !== $captcha->getTextInSession()) {
+				$this->addError(LocalizationUtility::translate('tx_pwcomments.validation_error.captcha', 'PwComments'), 170320111501);
 				return FALSE;
 			}
-		}catch(Exception $e){
-			\TYPO3\CMS\Core\Utility\GeneralUtility::devLog ( 'captcha error: ' . $e->getMessage (), 'captcha_viewhelper', 2 );
+		} catch(\Exception $e) {
+			GeneralUtility::devLog('captcha error: ' . $e->getMessage (), 'captcha_viewhelper', 2);
 			return FALSE;
 		}
 		return TRUE;
