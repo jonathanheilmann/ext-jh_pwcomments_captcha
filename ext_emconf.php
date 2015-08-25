@@ -14,7 +14,7 @@ $EM_CONF[$_EXTKEY] = array (
 	'title' => 'pwComments captcha',
 	'description' => 'Adds a captcha to the comments-form of EXT:pw_comments. Supports EXT:captcha and EXT:sr_freecap.',
 	'category' => 'plugin',
-	'version' => '0.0.4',
+	'version' => '0.1.0',
 	'state' => 'stable',
 	'uploadfolder' => true,
 	'createDirs' => '',
@@ -26,10 +26,8 @@ $EM_CONF[$_EXTKEY] = array (
 	array (
 		'depends' =>
 		array (
-			'extbase' => '6.0',
-			'fluid' => '6.0',
-			'typo3' => '6.0.0-6.2.99',
-			'pw_comments' => '2.0.0-2.1.0',
+			'typo3' => '6.2.0-6.2.99',
+			'pw_comments' => '3.0.0',
 		),
 		'conflicts' =>
 		array (

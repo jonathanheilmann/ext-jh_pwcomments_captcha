@@ -1,21 +1,21 @@
 config.tx_extbase {
 	objects {
-		Tx_PwComments_Controller_CommentController {
-			className = Tx_JhPwcommentsCaptcha_Controller_CaptchaController
+		PwCommentsTeam\PwComments\Controller\CommentController {
+			className = Heilmann\JhPwcommentsCaptcha\Controller\CaptchaController
 		}
-		Tx_PwComments_Domain_Model_Comment {
-			className = Tx_JhPwcommentsCaptcha_Domain_Model_Captcha
+		PwCommentsTeam\PwComments\Domain\Model\Comment {
+			className = Heilmann\JhPwcommentsCaptcha\Domain\Model\Captcha
 		}
 	}
 
 	persistence{
 		classes{
-			Tx_PwComments_Domain_Model_Comment {
+			PwCommentsTeam\PwComments\Domain\Model\Comment {
 				subclasses {
-					JhPwcommentsCaptcha = Tx_JhPwcommentsCaptcha_Domain_Model_Captcha
+					JhPwcommentsCaptcha = Heilmann\JhPwcommentsCaptcha\Domain\Model\Captcha
 				}
 			}
-			Tx_JhPwcommentsCaptcha_Domain_Model_Captcha {
+			Heilmann\JhPwcommentsCaptcha\Domain\Model\Captcha {
 				mapping {
 					tableName = tx_pwcomments_domain_model_comment
 				}

@@ -1,8 +1,10 @@
 <?php
+namespace Heilmann\JhPwcommentsCaptcha\Domain\Model;
+
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2014 Jonathan Heilmann <mail@jonathan-heilmann.de>
+*  (c) 2014-2015 Jonathan Heilmann <mail@jonathan-heilmann.de>
 *
 *  All rights reserved
 *
@@ -29,7 +31,8 @@
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class Tx_JhPwcommentsCaptcha_Domain_Model_Captcha extends Tx_PwComments_Domain_Model_Comment {
+class Captcha extends \PwCommentsTeam\PwComments\Domain\Model\Comment {
+
 	/**
 	 * captchaResponse
 	 *

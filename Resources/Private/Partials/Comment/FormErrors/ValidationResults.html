@@ -1,9 +1,0 @@
-{namespace c=Tx_PwComments_ViewHelpers}
-
-<f:form.validationResults>
-	<f:for each="{validationResults.flattenedErrors}" as="errors" key="propertyName">
-		<f:for each="{errors -> c:arrayUnique()}" as="error">
-			<div class="comment_error">{error.message}</div>
-		</f:for>
-	</f:for>
-</f:form.validationResults>

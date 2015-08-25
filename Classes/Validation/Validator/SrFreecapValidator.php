@@ -1,4 +1,8 @@
 <?php
+namespace Heilmann\JhPwcommentsCaptcha\Validation\Validator;
+
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 /***************************************************************
 *  Copyright notice
 *
@@ -29,7 +33,16 @@
  * Captcha validator modified to use options from ->setOptions
  * Modified by Jonathan Heilmann <mail@jonathan-heilmann.de>
  */
-class Tx_JhPwcommentsCaptcha_Validation_Validator_SrFreecapValidator extends \TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator {
+class SrFreecapValidator extends \TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator {
+
+	/**
+	 * This contains the supported options, their default values, types and descriptions.
+	 *
+	 * @var array
+	 */
+	protected $supportedOptions = array(
+		'word' => array('', 'Captcha string', 'string')
+	);
 
 	/**
 	 * Check the word that was entered against the hashed value
@@ -38,15 +51,16 @@ class Tx_JhPwcommentsCaptcha_Validation_Validator_SrFreecapValidator extends \TY
 	 * @param string $word: the word that was entered and should be validated
 	 * @return boolean TRUE, if the word entered matches the hash value, FALSE if an error occured
 	 */
-	public function isValid ($word) {
+	public function isValid($word) {
 		$isValid = FALSE;
-		$this->errors = array();
 		// Overwrite $word if options contains a value
-		if($this->options['word']) {
-			$word =     $this->options['word'];
+		if ($this->options['word']) {
+			$word = $this->options['word'];
 		}
 		// Get session data
-		$objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
+		/** @var \TYPO3\CMS\Extbase\Object\ObjectManager $objectManager */
+		$objectManager = GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
+		/** @var \SJBR\SrFreecap\Domain\Repository\WordRepository $wordRepository */
 		$wordRepository = $objectManager->get('SJBR\\SrFreecap\\Domain\\Repository\\WordRepository');
 		$wordObject = $wordRepository->getWord();
 		$wordHash = $wordObject->getWordHash();
@@ -65,8 +79,7 @@ class Tx_JhPwcommentsCaptcha_Validation_Validator_SrFreecapValidator extends \TY
 			}
 		}
 		if (!$isValid) {
-			//$this->addError('Entered word does not match the image.', 9221561048);
-			$this->addError(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('validation_error.captcha', 'pw_comment'), 9221561048);
+			$this->addError(LocalizationUtility::translate('tx_pwcomments.validation_error.captcha', 'PwComments'), 9221561048);
 		}
 		return $isValid;
 	}
