@@ -21,6 +21,18 @@ Changelog
         Changes
 
  - :Version:
+        1.0.0
+
+   :Changes:
+        \* Drop EXT:captcha support (#6)
+
+        \* Support TYPO3 7 and 8 LTS (#7)
+
+        \* Add composer.json (#8)
+
+        \* Added support for EXT:pw\_comments 4.0.0 and dropped support for versions before
+
+ - :Version:
         0.1.0
 
    :Changes:

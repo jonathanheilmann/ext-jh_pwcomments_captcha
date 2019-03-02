@@ -4,10 +4,10 @@
 
 ---
 conf.py:
-  copyright: 2014-2015
+  copyright: 2014-2019
   project: pwComments captcha
-  version: 0.1
-  release: 0.1.0
+  version: 1.0
+  release: 1.0.0
   latex_documents:
   - - Index
     - jh_pwcomments_captcha.tex

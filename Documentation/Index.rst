@@ -30,7 +30,7 @@ pwComments captcha
 		pwComments, pw_comments, comment, comments, patcha, spam-protection
 
 	:Copyright:
-		2014-2015
+		2014-2019
 
 	:Author:
 		Jonathan Heilmann
