@@ -1,0 +1,29 @@
+{
+  "name": "jonathanheilmann/jh_pwcomments_captcha",
+  "type": "typo3-cms-extension",
+  "description": "Adds a captcha to the comments-form of EXT:pw_comments using EXT:sr_freecap.",
+  "authors": [
+    {
+      "name": "Jonathan Heilmann",
+      "email": "mail@jonathan-heilmann.de"
+    }
+  ],
+  "version": "1.0.0",
+  "license": "GPL-2.0+",
+  "keywords": [
+    "pwComments",
+    "captcha"
+  ],
+  "require": {
+    "typo3/cms-core": "~7.6||~8.7",
+    "instituteweb/pw_comments": ">=4.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Heilmann\\JhPwcommentsCaptcha\\": "Classes/"
+    }
+  },
+  "replace": {
+    "jh_pwcomments_captcha": "*"
+  }
+}
