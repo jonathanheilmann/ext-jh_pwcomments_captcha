@@ -1,8 +1,12 @@
 <?php
 namespace Heilmann\JhPwcommentsCaptcha\Validation\Validator;
 
+use SJBR\SrFreecap\Domain\Repository\WordRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
+use TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator;
+
 /***************************************************************
 *  Copyright notice
 *
@@ -33,7 +37,7 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
  * Captcha validator modified to use options from ->setOptions
  * Modified by Jonathan Heilmann <mail@jonathan-heilmann.de>
  */
-class SrFreecapValidator extends \TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator {
+class SrFreecapValidator extends AbstractValidator {
 
 	/**
 	 * This contains the supported options, their default values, types and descriptions.
@@ -58,10 +62,10 @@ class SrFreecapValidator extends \TYPO3\CMS\Extbase\Validation\Validator\Abstrac
 			$word = $this->options['word'];
 		}
 		// Get session data
-		/** @var \TYPO3\CMS\Extbase\Object\ObjectManager $objectManager */
-		$objectManager = GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
-		/** @var \SJBR\SrFreecap\Domain\Repository\WordRepository $wordRepository */
-		$wordRepository = $objectManager->get('SJBR\\SrFreecap\\Domain\\Repository\\WordRepository');
+		/** @var ObjectManager $objectManager */
+		$objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+		/** @var WordRepository $wordRepository */
+		$wordRepository = $objectManager->get(WordRepository::class);
 		$wordObject = $wordRepository->getWord();
 		$wordHash = $wordObject->getWordHash();
 		// Check the word hash against the stored hash value

@@ -24,13 +24,13 @@ pwComments captcha
 		en
 
 	:Description:
-		Adds a captcha to the comments-form of EXT:pw_comments. Supports EXT:captcha and EXT:sr_freecap.
+		Adds a captcha to the comments-form of EXT:pw_comments using EXT:sr_freecap.
 
 	:Keywords:
 		pwComments, pw_comments, comment, comments, patcha, spam-protection
 
 	:Copyright:
-		2014-2015
+		2014-2019
 
 	:Author:
 		Jonathan Heilmann

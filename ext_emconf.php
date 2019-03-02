@@ -12,9 +12,9 @@
 
 $EM_CONF[$_EXTKEY] = array (
 	'title' => 'pwComments captcha',
-	'description' => 'Adds a captcha to the comments-form of EXT:pw_comments. Supports EXT:captcha and EXT:sr_freecap.',
+	'description' => 'Adds a captcha to the comments-form of EXT:pw_comments using EXT:sr_freecap.',
 	'category' => 'plugin',
-	'version' => '0.1.0',
+	'version' => '1.0.0',
 	'state' => 'stable',
 	'uploadfolder' => true,
 	'createDirs' => '',
@@ -26,14 +26,15 @@ $EM_CONF[$_EXTKEY] = array (
 	array (
 		'depends' =>
 		array (
-			'typo3' => '6.2.0-6.2.99',
-			'pw_comments' => '3.0.0',
+            'typo3' => '7.6.0-8.7.99',
+            'pw_comments' => '4.0.0-0.0.0'
 		),
 		'conflicts' =>
 		array (
 		),
 		'suggests' =>
 		array (
+            'sr_freecap' => '2.4.0-0.0.0'
 		),
 	),
 );

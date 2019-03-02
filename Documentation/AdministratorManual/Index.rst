@@ -19,18 +19,18 @@ the captcha extension you want to use. The selected captcha-extension
 needs to be installed, otherwise, the frontend runs into an
 error.
 
-When using EXT:captcha, the extension "captcha\_viewhelper" is required, too.
-
-
-.. warning::
-
-	Captcha "Captcha" is deprecated since version 0.1.0. It seems that EXT:captcha\_viewhelper is not maintained anymore.
-
 
 .. _admin-breaking_changes:
 
 Breaking changes
 ----------------
+
+.. _admin-breaking_changes-1000000:
+
+1.0.0
+^^^^^
+
+\* Dropped support for EXT:captcha
 
 .. _admin-breaking_changes-00100:
 

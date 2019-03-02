@@ -12,12 +12,7 @@
 What does it do?
 ================
 
-This extension adds a captcha to the pwComments comment-form to prevent from spam and/or bot-comments. Actually the captcha extension “sr\_freecap” are supported.
-
-.. warning::
-
-	Captcha extension "captcha" has been supported, but since version 0.1.0 of this extension, support is deprecated, because it seems that the required extension "captcha\_viewhelper" is not maintained anymore.
-
+This extension adds a captcha to the pwComments comment-form to prevent from spam and/or bot-comments. Actually the captcha extension “sr\_freecap” is supported.
 
 .. _introduction_screenshots:
 
@@ -29,12 +24,6 @@ Screenshots
 	:alt: PwComments with sr\_freecap
 
 	PwComments with sr\_freecap
-
-.. figure:: ../Images/screenshot-captcha_viewhelper.png
-	:width: 500px
-	:alt: PwComments with captcha\_viewhelper
-
-	Deprecated since version 0.1.0: PwComments with captcha\_viewhelper
 
 
 .. _introduction_contribute:

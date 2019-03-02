@@ -48,8 +48,6 @@ Reference
 
          - none
 
-         - captcha (deprecated since version 0.1.0)
-
          - sr\_freecap
 
    Default
