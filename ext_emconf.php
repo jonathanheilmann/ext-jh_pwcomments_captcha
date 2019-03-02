@@ -12,7 +12,7 @@
 
 $EM_CONF[$_EXTKEY] = array (
 	'title' => 'pwComments captcha',
-	'description' => 'Adds a captcha to the comments-form of EXT:pw_comments. Supports EXT:captcha and EXT:sr_freecap.',
+	'description' => 'Adds a captcha to the comments-form of EXT:pw_comments using EXT:sr_freecap.',
 	'category' => 'plugin',
 	'version' => '1.0.0-dev',
 	'state' => 'stable',
@@ -34,6 +34,7 @@ $EM_CONF[$_EXTKEY] = array (
 		),
 		'suggests' =>
 		array (
+            'sr_freecap' => '2.4.0-0.0.0'
 		),
 	),
 );

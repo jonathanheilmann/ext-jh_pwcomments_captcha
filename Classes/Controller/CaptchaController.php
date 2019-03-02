@@ -1,12 +1,17 @@
 <?php
 namespace Heilmann\JhPwcommentsCaptcha\Controller;
 
+use Heilmann\JhPwcommentsCaptcha\Validation\Validator\SrFreecapValidator;
+use PwCommentsTeam\PwComments\Controller\CommentController;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\MVC\Controller\Argument;
+use TYPO3\CMS\Extbase\Validation\Validator\ConjunctionValidator;
+
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2014-2015 Jonathan Heilmann <mail@jonathan-heilmann.de>
+*  (c) 2014-2019 Jonathan Heilmann <mail@jonathan-heilmann.de>
 *
 *  All rights reserved
 *
@@ -33,7 +38,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class CaptchaController extends \PwCommentsTeam\PwComments\Controller\CommentController {
+class CaptchaController extends CommentController {
 
 	/**
 	 * initializeActionMethodValidators to dynamically add validators
@@ -45,10 +50,10 @@ class CaptchaController extends \PwCommentsTeam\PwComments\Controller\CommentCon
 
 		$requestArguments = $this->request->getArguments();
 		foreach ($this->arguments as $argument) {
-			/* @var  \TYPO3\CMS\Extbase\MVC\Controller\Argument $argument */
+			/* @var  Argument $argument */
 			if ($argument->getName() == 'newComment' && $this->actionMethodName == 'createAction') {
 				// Get the validators of the model
-				/* @var \TYPO3\CMS\Extbase\Validation\Validator\ConjunctionValidator $validator */
+				/* @var ConjunctionValidator $validator */
 				$validator = $argument->getValidator();
 
 				// If activated and available add the modified sr_freecap validator
@@ -56,23 +61,11 @@ class CaptchaController extends \PwCommentsTeam\PwComments\Controller\CommentCon
 					$options = array(
 						'word' => $requestArguments['newComment']['captchaResponse']
 					);
-					/** @var \Heilmann\JhPwcommentsCaptcha\Validation\Validator\SrFreecapValidator  $captchaValidator */
-					$captchaValidator = GeneralUtility::makeInstance('Heilmann\\JhPwcommentsCaptcha\\Validation\\Validator\\SrFreecapValidator', $options);
-					$validator->addValidator($captchaValidator);
-				}
-
-				// If activated and available add the modified captcha_viewhelper validator
-				// It seems that EXT:captcha_viewhelper is not maintained anymore. Support will be dropped two minor versions later
-				if($this->settings['captcha'] == 'captcha' && ExtensionManagementUtility::isLoaded('captcha_viewhelper')) {
-					$options = array(
-						'value' => $requestArguments['newComment']['captchaResponse']
-					);
-					/** @var \Heilmann\JhPwcommentsCaptcha\Validation\Validator\CaptchaValidator  $captchaValidator */
-					$captchaValidator = GeneralUtility::makeInstance('Heilmann\\JhPwcommentsCaptcha\\Validation\\Validator\\CaptchaValidator', $options);
+					/** @var SrFreecapValidator $captchaValidator */
+					$captchaValidator = GeneralUtility::makeInstance(SrFreecapValidator::class, $options);
 					$validator->addValidator($captchaValidator);
 				}
 			}
 		}
 	}
 }
-?>

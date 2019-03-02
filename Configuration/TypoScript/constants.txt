@@ -1,2 +1,2 @@
-# cat=plugin.tx_pwcomments/advanced/990; type=options[none,captcha,sr_freecap]; label=Captcha: Select the captcha-extension to be used
+# cat=plugin.tx_pwcomments/advanced/990; type=options[none,sr_freecap]; label=Captcha: Select the captcha-extension to be used
 plugin.tx_pwcomments.settings.captcha = none
